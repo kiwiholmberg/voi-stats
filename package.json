@@ -5,8 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "node lib/index.js",
-    "once": "node -e 'require(\"./lib/vehicleStatus\").get()'",
-    "once:debug": "node -e 'require(\"./lib/vehicleStatus\").get(true)'",
+    "deploy": "gcloud app deploy",
+    "once": "node -e 'require(\"./lib/adapters/voiVehicleStatus\").get()'",
+    "once:debug": "node -e 'require(\"./lib/adapters/voiVehicleStatus\").get(true)'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "nodemonConfig": {
@@ -15,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/datastore": "^2.0.0",
     "express": "^4.16.3",
     "got": "^9.2.1",
     "ioredis": "^4.0.0",

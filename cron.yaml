@@ -1,0 +1,5 @@
+cron:
+  - description: "aggregation of API results"
+    url: /system/record-vehicle-status
+    schedule: every 1 hours
+
