@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div
+  class="container"
+  style="height: 40vh; width: 80vh; position: relative; margin: auto;">
+  <canvas id="numberOfVehiclesChart"></canvas>
+</div>
+
+<script>
+  const numberOfVehicles = {{ numberOfVehicles|dump|safe }}
+  const labels = numberOfVehicles.map((_, idx) => {
+    return `-${numberOfVehicles.length - (idx + 1)}h`
+  })
+
+  var ctx = document.getElementById("numberOfVehiclesChart").getContext('2d')
+
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'VOIs present last 2 days',
+        data: numberOfVehicles,
+        backgroundColor: 'rgba(0, 0, 200, 0.1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Number of vehicles'
+          },
+          ticks: {
+            beginAtZero:true,
+          }
+        }]
+      }
+    }
+  })
+</script>
+{% endblock %}

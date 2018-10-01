@@ -1,0 +1,60 @@
+{
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true,
+    "mocha": true
+  },
+  "rules": {
+    "no-tabs": "error",
+    "no-global-assign": "error",
+    "no-unsafe-negation": "error",
+    "no-template-curly-in-string": "error",
+    "object-curly-spacing": ["error", "always"],
+    "func-call-spacing": [
+      "error",
+      "never"
+    ],
+    "camelcase": "warn",
+    "arrow-parens": "off",
+    "no-unexpected-multiline": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "no-dupe-args": "warn",
+    "no-native-reassign": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_(.){0,}$",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_(.){0,}$",
+        "args": "all",
+        "argsIgnorePattern": "^(_(.){0,}|req|res|next)$",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "prefer-promise-reject-errors": "warn",
+    "eol-last": [
+      "error",
+      "always"
+    ],
+    "spaced-comment": [
+      "off",
+      "never",
+      {
+        "exceptions": [
+          ":",
+          "::"
+        ],
+        "markers": [
+          "/*"
+        ]
+      }
+    ]
+  }
+}

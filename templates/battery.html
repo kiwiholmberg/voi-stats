@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div
+  class="container"
+  style="height: 40vh; width: 80vh; position: relative; margin: auto;">
+  <canvas id="batteryChart"></canvas>
+</div>
+
+<script>
+  const avgBatteryValues = {{ avgBatteryPercentages|dump|safe }}
+  const labels = avgBatteryValues.map((_, idx) => {
+    return `-${avgBatteryValues.length - (idx + 1)}h`
+  })
+
+  var ctx = document.getElementById("batteryChart").getContext('2d');
+
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Fleet battery last 2 days',
+        data: avgBatteryValues.map(val => Math.floor(val)),
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Average battery %'
+          },
+          ticks: {
+            beginAtZero:true,
+            max: 100
+          }
+        }]
+      }
+    }
+  })
+</script>
+{% endblock %}
