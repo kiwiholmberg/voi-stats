@@ -9,9 +9,7 @@
 
 <script>
   const avgBatteryValues = {{ avgBatteryPercentages|dump|safe }}
-  const labels = avgBatteryValues.map((_, idx) => {
-    return `-${avgBatteryValues.length - (idx + 1)}h`
-  })
+  const labels = {{ collectedAtTimes|dump|safe }}
 
   var ctx = document.getElementById("batteryChart").getContext('2d');
 

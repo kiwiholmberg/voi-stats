@@ -9,9 +9,7 @@
 
 <script>
   const numberOfVehicles = {{ numberOfVehicles|dump|safe }}
-  const labels = numberOfVehicles.map((_, idx) => {
-    return `-${numberOfVehicles.length - (idx + 1)}h`
-  })
+  const labels = {{ collectedAtTimes|dump|safe }}
 
   var ctx = document.getElementById("numberOfVehiclesChart").getContext('2d')
 
